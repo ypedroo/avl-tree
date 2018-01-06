@@ -6,7 +6,7 @@ class Node {
         this.rightChild = rightChild;
         this.hasLeftChildfactor = 0;
     }
-    
+
     balanceFactor(key) {
         node = this.key;
         node.forEach(factor => {
@@ -16,7 +16,7 @@ class Node {
             }
             if (node.hasRightChild) {
                 factor--;
-                node.leftChild.balanceFactor();
+                node.rightChild.balanceFactor();
             }
             return factor;
         });
