@@ -26,7 +26,7 @@ class Node {
     simpleLeftRotation() {
         let oldRoot = this;
         let newRoot = this.rightChild;
-        if (balanceFactor < -1 && oldRoot.rightChild.balanceFactor < 0) {
+        if (balanceFactor < -1 && newRoot.balanceFactor < 0) {
             newRoot = oldRoot.parent;
             newRoot.leftChild = oldRoot;
             if (newRoot.hasLeftChild) {
@@ -40,7 +40,7 @@ class Node {
     simpleRightRotation() {
         let oldRoot = this;
         let newRoot = this.leftChild;
-        if (balanceFactor > 1 && oldRoot.leftChild.balanceFactor > 0) {
+        if (balanceFactor > 1 && newRoot.balanceFactor >= 0) {
             newRoot = oldRoot.parent;
             newRoot.rightChild = oldRoot;
             if (newRoot.hasRightChild) {
@@ -50,6 +50,34 @@ class Node {
         }
 
     }
+    doubleLeftRotation() {
+        let oldRoot = this;
+        if (balanceFactor < -1 && oldRoot.rightChild.balanceFactor >= 0) {
+            oldRoot.rightChild.simpleRightRotation();
+            oldRoot.simpleLeftRotation();
+
+
+        }
+    }
+
+
+    doubleLeftRotation() {
+        let oldRoot = this;
+        if (balanceFactor > 1 && oldRoot.rightChild.balanceFactor < 0) {
+            oldRoot.rightChild.simpleRightRotation();
+            oldRoot.simpleLeftRotation();
+
+
+        }
+    }
+
+
+
+
+
+
+
+
 
 
     //revisar
