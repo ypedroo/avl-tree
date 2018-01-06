@@ -37,6 +37,20 @@ class Node {
 
     }
 
+    simpleRightRotation() {
+        let oldRoot = this;
+        let newRoot = this.leftChild;
+        if (balanceFactor < -1 && oldRoot.rightChild.balanceFactor < 0) {
+            newRoot = oldRoot.parent;
+            newRoot.rightChild = oldRoot;
+            if (newRoot.hasRightChild) {
+                oldRoot.leftChild = newRoot.leftChild;
+
+            }
+        }
+
+    }
+
 
     //revisar
     find(key) {
