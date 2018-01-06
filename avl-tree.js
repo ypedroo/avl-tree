@@ -6,53 +6,28 @@ class Node {
         this.rightChild = rightChild;
         this.hasLeftChildfactor = 0;
     }
-
-    leftBalanceFactor(key) {
-        node = this.key.leftChild;
-        node.forEach(factor => {
-            if (node.hasLeftChild) {
-                factor++;
-            }
-            if (node.hasRightChild) {
-                factor--;
-            }
-            return factor;
-        });
-    }
-
-    rightBalanceFactor(key) {
-        node = this.key.rightChild;
-        node.forEach(factor => {
-            if (node.hasLeftChild) {
-                factor++;
-            }
-            if (node.hasRightChild) {
-                factor--;
-            }
-            return factor;
-        });
-    }
-
-    rootBalanceFactor(key) {
+    
+    balanceFactor(key) {
         node = this.key;
         node.forEach(factor => {
             if (node.hasLeftChild) {
                 factor++;
+                node.leftChild.balanceFactor();
             }
             if (node.hasRightChild) {
                 factor--;
+                node.leftChild.balanceFactor();
             }
             return factor;
         });
     }
 
 
-
-
-
-    balance(key) {
+    simpleLeftRotation(key) {
+        if ()
 
     }
+
 
     //revisar
     find(key) {
