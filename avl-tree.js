@@ -8,7 +8,7 @@ class Node {
     }
 
     balanceFactor(key) {
-        node = this.key;
+        let node = this.key;
         node.forEach(factor => {
             if (node.hasLeftChild) {
                 factor++;
@@ -23,8 +23,17 @@ class Node {
     }
 
 
-    simpleLeftRotation(key) {
-        if ()
+    simpleLeftRotation() {
+        let oldRoot = this;
+        let newRoot = this.rightChild;
+        if (balanceFactor < -1 && oldRoot.rightChild.balanceFactor < 0) {
+            newRoot = oldRoot.parent;
+            newRoot.leftChild = oldRoot;
+            if (newRoot.hasLeftChild) {
+                oldRoot.rightChild = newRoot.leftChild;
+
+            }
+        }
 
     }
 
